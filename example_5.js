@@ -7,7 +7,7 @@
   var Item = Backbone.Model.extend({
     defaults: {
 	  interface_id: 0,
-      text: 'Hello World'
+      text: 'Hello World '
     }
   });
   
@@ -32,7 +32,7 @@
     },
     // `render()` now includes two extra `span`s corresponding to the actions swap and delete.
     render: function(){
-      $(this.el).html('<span id="'+this.model.get('interface_id')+'" style="color:black;">'+this.model.get('text')+'</span> &nbsp; &nbsp; <span class="edit" style="font-family:sans-serif; color:blue; cursor:pointer;">[edit]</span> <span class="delete" style="cursor:pointer; color:red; font-family:sans-serif;">[delete]</span>');
+      $(this.el).html('<span style="color:black;">'+this.model.get('text')+'</span> &nbsp; &nbsp; <span class="edit" style="font-family:sans-serif; color:blue; cursor:pointer;">[edit]</span> <span class="delete" style="cursor:pointer; color:red; font-family:sans-serif;">[delete]</span>');
       return this; // for chainable calls, like .render().el
     },
     // `unrender()`: Makes Model remove itself from the DOM.
@@ -69,7 +69,7 @@
     },
     render: function(){
       var self = this;
-      $(this.el).append("<button id='add'>Add list item</button>");
+      $(this.el).append("<button id='add'>Add an item</button>");
       $(this.el).append("<ul></ul>");
       _(this.collection.models).each(function(item){ // in case collection is not empty
         self.appendItem(item);
